@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Script kuesioner SIMA unira</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(135deg, #2c3e50, #4a6582);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 0.5rem 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .video-section, .script-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .video-section h2, .script-section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .warning {
+            color: red;
+            display: inline;
+        }
+
+        .enter {
+            display: inline;
+            margin-left: 1px;
+            color: #00b60f;
+        }
+        .script-section pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        .copy-btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+        .copy-btn:hover {
+            background: linear-gradient(to right, #2980b9, #2573a7);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Auto Script kuesioner SIMA</h1>
+        <p>Otomatiskan respons kuesioner Anda dengan alat sederhana ini by muchrid</p>
+    </header>
+
+    <div class="container">
+        <div class="video-section">
+            <h2>Video Tutorial</h2>
+            <p>Tonton tutorial di bawah ini untuk mempelajari cara menggunakan skrip secara efektif.</p>
+            <div class="video-container">
+                <!-- Placeholder for video; replace with actual video URL -->
+                <video src="autoquisioner.mp4" autoplay loop muted playsinline style="width: 100%; height: auto;" ></video>
+            </div>
+            <p class="warning">*jika muncul Warning: Don’t paste code into the DevTools Console that you don’t understand or haven’t reviewed yourself. This could allow attackers to steal your identity or take control of your computer. Please type ‘allow pasting’ below and press Enter to allow pasting.</p>
+            <p class="enter">ketikkan "allow pasting" di console dan tekan Enter</p>
+        </div>
+
+        <div class="script-section">
+            <h2>Script</h2>
+            <p>Salin Scipt di bawah ini dan gunakan untuk mengotomatiskan respons kuesioner.</p>
+            <pre id="scriptContent">eval(atob("ZnVuY3Rpb24gc2hvd0xvYWRpbmdBbmltYXRpb24oYyl7Y29uc3QgbD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCJkaXYiKTtsLmlubmVySFRNTD0nPHN0eWxlPi5sb2FkaW5nLW92ZXJsYXl7cG9zaXRpb246Zml4ZWQ7dG9wOjA7bGVmdDowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7YmFja2dyb3VuZDpyZ2JhKDAsMCwwLDAuODUpO2Rpc3BsYXk6ZmxleDtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO2FsaWduLWl0ZW1zOmNlbnRlcjt6LWluZGV4OjEwMDF9LmxvYWRpbmctY29udGVudHtkaXNwbGF5OmZsZXg7ZmxleC1kaXJlY3Rpb246Y29sdW1uO2FsaWduLWl0ZW1zOmNlbnRlcjtjb2xvcjojZmZmO2ZvbnQtZmFtaWx5OiJTZWdvZSBVSSIsQXJpYWwsc2Fucy1zZXJpZn0uc3Bpbm5lcnt3aWR0aDo1MHB4O2hlaWdodDo1MHB4O2JvcmRlcjo0cHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjIpO2JvcmRlci10b3A6NHB4IHNvbGlkICMzYTdiZDU7Ym9yZGVyLXJhZGl1czo1MCU7YW5pbWF0aW9uOnNwaW4gMXMgbGluZWFyIGluZmluaXRlO21hcmdpbi1ib3R0b206MjBweH1Aa2V5ZnJhbWVzIHNwaW57MCV7dHJhbnNmb3JtOnJvdGF0ZSgwZGVnKX0xMDAle3RyYW5zZm9ybTpyb3RhdGUoMzYwZGVnKX19LmxvYWRpbmctY29udGVudCBwe2ZvbnQtc2l6ZToxNnB4O2xldHRlci1zcGFjaW5nOjAuNXB4O2NvbG9yOiNlMGUwZTB9PC9zdHlsZT48ZGl2IGNsYXNzPSJsb2FkaW5nLW92ZXJsYXkiPjxkaXYgY2xhc3M9ImxvYWRpbmctY29udGVudCI+PGRpdiBjbGFzcz0ic3Bpbm5lciI+PC9kaXY+PHA+VHVuZ2d1IFNlYmVudGFyLi4uPC9wPjwvZGl2PjwvZGl2Pic7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChsKTtzZXRUaW1lb3V0KCgpPT57ZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChsKTtjKCl9LDE1MDApfWZ1bmN0aW9uIHNob3dDb25maXJtYXRpb25Qb3B1cChjKXtjb25zdCBwPWRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImRpdiIpO3AuaW5uZXJIVE1MPSc8c3R5bGU+LnBvcHVwLW92ZXJsYXl7cG9zaXRpb246Zml4ZWQ7dG9wOjA7bGVmdDowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7YmFja2dyb3VuZDpyZ2JhKDQ0LDYyLDgwLDAuNyk7ZGlzcGxheTpmbGV4O2p1c3RpZnktY29udGVudDpjZW50ZXI7YWxpZ24taXRlbXM6Y2VudGVyO3otaW5kZXg6MTAwMDthbmltYXRpb246ZmFkZUluIDAuMjVzIGVhc2Utb3V0fS5wb3B1cC1jb250ZW50e2JhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KDEzNWRlZywjMmMzZTUwLCM0YTY1ODIpO3BhZGRpbmc6MzBweDtib3JkZXItcmFkaXVzOjEycHg7Ym94LXNoYWRvdzowIDEwcHggMzBweCByZ2JhKDAsMCwwLDAuMyk7dGV4dC1hbGlnbjpjZW50ZXI7Zm9udC1mYW1pbHk6IlNlZ29lIFVJIixBcmlhbCxzYW5zLXNlcmlmO2NvbG9yOiNmZmY7d2lkdGg6OTAlO21heC13aWR0aDo0NTBweDtib3JkZXI6MXB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4xKTtiYWNrZHJvcC1maWx0ZXI6Ymx1cig1cHgpfS5wb3B1cC1jb250ZW50IGgye21hcmdpbjowIDAgMTVweCAwO2ZvbnQtc2l6ZToyNHB4O2ZvbnQtd2VpZ2h0OjYwMDtjb2xvcjojZjVmNWY1fS5wb3B1cC1jb250ZW50IHB7bWFyZ2luOjAgMCAyNXB4IDA7Zm9udC1zaXplOjE1cHg7bGluZS1oZWlnaHQ6MS41O2NvbG9yOiNkMWUwYWR9LnBvcHVwLWJ1dHRvbnN7ZGlzcGxheTpmbGV4O2p1c3RpZnktY29udGVudDpjZW50ZXI7Z2FwOjE1cHh9LnBvcHVwLWJ1dHRvbnMgYnV0dG9ue3BhZGRpbmc6MTJweCAyOHB4O2JvcmRlcjpub25lO2JvcmRlci1yYWRpdXM6NnB4O2N1cnNvcjpwb2ludGVyO2ZvbnQtc2l6ZToxNXB4O2ZvbnQtd2VpZ2h0OjYwMDt0cmFuc2l0aW9uOmFsbCAwLjJzIGVhc2U7bWluLXdpZHRoOjEwMHB4fS5wb3B1cC1idXR0b25zIC5ydW4tYnRue2JhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCMzNDk4ZGIsIzI5ODBiOSk7Y29sb3I6I2ZmZjtib3gtc2hhZG93OjAgM3B4IDEwcHggcmdiYSg1MiwxNTIsMjE5LDAuMyl9LnBvcHVwLWJ1dHRvbnMgLnJ1bi1idG46aG92ZXJ7YmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQsIzI5ODBiYSwjMjU3M2E3KTt0cmFuc2Zvcm06dHJhbnNsYXRlWSgtMnB4KTtib3gtc2hhZG93OjAgNXB4IDE1cHggcmdiYSg1MiwxNTIsMjE5LDAuNCk7Y29sb3I6I2ZmZn0ucG9wdXAtYnV0dG9ucyAuY2FuY2VsLWJ0bntiYWNrZ3JvdW5kOmxpbmVhci1ncmFkaWVudCh0byByaWdodCwjZTc0YzNjLCNjMDM5MmIpO2NvbG9yOiNmZmY7Ym94LXNoYWRvdzowIDNweCAxMHB4IHJnYmEoMjMxLDc2LDYwLDAuMyl9LnBvcHVwLWJ1dHRvbnMgLmNhbmNlbC1idG46aG92ZXJ7YmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQsI2MwMzkyYiwjYjUzMjI1KTt0cmFuc2Zvcm06dHJhbnNsYXRlWSgtMnB4KTtib3gtc2hhZG93OjAgNXB4IDE1cHggcmdiYSgyMzEsNzYsNjAsMC40KX0uY3JlZGl0e3RleHQtYWxpZ246Y2VudGVyO21hcmdpbi10b3A6MTVweDtmb250LXNpemU6MTJweDtjb2xvcjojYjBiMGIwfUBrZXlmcmFtZXMgZmFkZUluZnJvbXtvcGFjaXR5OjA7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoMTBweCl9dG97b3BhY2l0eToxO3RyYW5zZm9ybTp0cmFuc2xhdGVZKDApfX08L3N0eWxlPjxkaXYgY2xhc3M9InBvcHVwLW92ZXJsYXkiPjxkaXYgY2xhc3M9InBvcHVwLWNvbnRlbnQiPjxoMj5BdXRvZmlsbCBLdWVzaW9uZXI8L2gyPjxwPlBlbmlsYWlhbiBha2FuIGRpaXNpIHNlY2FyYSBhY2FrIChTYW5nYXQgVGlkYWsgUHVhcywgVGlkYWsgUHVhcywgQ3VrdXAsIFB1YXMsIGF0YXUgU2FuZ2F0IFB1YXMpLiBBcGFrYWggQW5kYSB5YWtpbiBtZW5qYWxhbmthbj88L3A+PGRpdiBjbGFzcz0icG9wdXAtYnV0dG9ucyI+PGJ1dHRvbiBjbGFzcz0icnVuLWJ0biI+SmFsYW5rYW48L2J1dHRvbj48YnV0dG9uIGNsYXNzPSJjYW5jZWwtYnRuIj5CYXRhbDwvYnV0dG9uPjwvZGl2PjxkaXYgY2xhc3M9ImNyZWRpdCI+U2NyaXB0IGJ5IG11Y2hyaWQ8L2Rpdj48L2Rpdj48L2Rpdj4nO2RvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQocCk7Y29uc3Qgcj1wLnF1ZXJ5U2VsZWN0b3IoJy5ydW4tYnRuJyksYj1wLnF1ZXJ5U2VsZWN0b3IoJy5jYW5jZWwtYnRuJyk7ci5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsICgpPT57ZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChwKTtzaG93TG9hZGluZ0FuaW1hdGlvbihjKX0pO2IuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKT0+e2RvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQocCk7Y29uc29sZS5sb2coJ1Blbmdpc2lhbiBrdWVzaW9uZXIgZGliYXRhbGthbi4nKX0pfWZ1bmN0aW9uIGZpbGxSYW5kb21RdWVzdGlvbm5haXJlKCl7Y29uc3Qgcj1kb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCd0cicpO3IuZm9yRWFjaCh0PT57Y29uc3QgYz10LnF1ZXJ5U2VsZWN0b3JBbGwoJ3RkJyk7Yy5mb3JFYWNoKHNyYz0+e2NvbnN0IHU9c3JjLnF1ZXJ5U2VsZWN0b3JBbGwoJ3VsJyk7dS5mb3JFYWNoKGw9Pntjb25zdCBpPWwucXVlcnlTZWxlY3RvckFsbCgnaW5wdXRbdHlwZT0icmFkaW8iXVtuYW1lKj0ic29hbCJdJyksYT1bIjgzMyIsIjgzNCIsIjgzNSIsIjgzNiIsIjgzNyJdLHY9YVtNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkqYS5sZW5ndGgpXTtpLmZvckVhY2gocj0+e3IudmFsdWU9PXYmJihyLmNoZWNrZWQ9ITApfSl9KX0pfSk7Y29uc29sZS5sb2coJ0t1ZXNpb25lciB0ZWxhaCBkaWlzaSBzZWNhcmEgYWNhaycpfXNob3dDb25maXJtYXRpb25Qb3B1cChmaWxsUmFuZG9tUXVlc3Rpb25uYWlyZSk="));</pre>
+            <button class="copy-btn" onclick="copyScript()">Salin Script</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>Script by muchrid | 2025</p>
+    </footer>
+
+    <script>
+        function copyScript() {
+            const scriptText = document.getElementById('scriptContent').textContent;
+
+            // Try using the modern Clipboard API
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.write(scriptText).then(() => {
+                    alert('Script copied to clipboard!');
+                }).catch(err => {
+                    console.error('Clipboard API failed: ', err);
+                    fallbackCopy(scriptText);
+                });
+            } else {
+                // Fallback for non-secure contexts or older browsers
+                fallbackCopy(scriptText);
+            }
+        }
+
+        function fallbackCopy(text) {
+            // Create a temporary textarea element
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed'; // Prevent scrolling
+            textarea.style.opacity = '0'; // Hide element
+            document.body.appendChild(textarea);
+            textarea.focus();
+            textarea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert('Script copied to clipboard!');
+                } else {
+                    alert('Failed to copy script. Please copy it manually.');
+                }
+            } catch (err) {
+                console.error('Fallback copy failed: ', err);
+                alert('Failed to copy script. Please copy it manually.');
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    </script>
+</body>
+</html>
