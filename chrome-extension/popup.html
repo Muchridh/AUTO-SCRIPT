@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Script Kuesioner SIMA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+
+  <!-- ===== INSTALL SCREEN (tampil pertama kali) ===== -->
+  <div id="installScreen" class="screen active">
+    <div class="install-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+    </div>
+
+    <div class="install-card">
+      <div class="install-logo">
+        <img src="icons/icon128.png" alt="Logo" />
+        <div class="install-logo-glow"></div>
+      </div>
+
+      <h1 class="install-title">Auto Script<br/><span>Kuesioner SIMA</span></h1>
+      <p class="install-sub">Ekstensi resmi untuk mengotomatiskan pengisian kuesioner SIMA Unira secara cepat &amp; mudah.</p>
+
+      <div class="install-features">
+        <div class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <span>Isi kuesioner otomatis dalam hitungan detik</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🎲</span>
+          <span>Jawaban acak yang natural</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔒</span>
+          <span>Aman &amp; tidak menyimpan data pribadi</span>
+        </div>
+      </div>
+
+      <button id="installBtn" class="btn-install">
+        <span class="btn-icon">🚀</span>
+        Pasang Ekstensi
+        <div class="btn-ripple"></div>
+      </button>
+
+      <p class="install-credit">by <strong>muchrid</strong> · v1.0.0</p>
+    </div>
+  </div>
+
+  <!-- ===== MAIN SCREEN (setelah install) ===== -->
+  <div id="mainScreen" class="screen">
+    <div class="main-bg">
+      <div class="orb orb1"></div>
+      <div class="orb orb2"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="main-header">
+      <div class="header-logo">
+        <img src="icons/icon48.png" alt="Logo" />
+      </div>
+      <div class="header-text">
+        <h2>Auto Script SIMA</h2>
+        <span class="badge">v1.0.0</span>
+      </div>
+      <div id="statusDot" class="status-dot idle" title="Idle"></div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="run">Jalankan</button>
+      <button class="tab-btn" data-tab="script">Script</button>
+      <button class="tab-btn" data-tab="about">Tentang</button>
+    </div>
+
+    <!-- Tab: Run -->
+    <div id="tab-run" class="tab-content active">
+      <div class="run-section">
+        <div class="info-card">
+          <div class="info-icon">💡</div>
+          <div class="info-text">
+            <strong>Cara Penggunaan</strong>
+            <ol>
+              <li>Buka halaman kuesioner SIMA Unira</li>
+              <li>Klik tombol <em>"Jalankan Sekarang"</em> di bawah</li>
+              <li>Konfirmasi &amp; tunggu proses selesai</li>
+            </ol>
+          </div>
+        </div>
+
+        <div id="statusMsg" class="status-msg hidden"></div>
+
+        <button id="runBtn" class="btn-run">
+          <span class="btn-run-icon">▶</span>
+          Jalankan Sekarang
+        </button>
+
+        <div class="warning-card">
+          <span>⚠️</span>
+          <p>Jika muncul pesan <em>"Don't paste code..."</em> di DevTools, ketikkan <code>allow pasting</code> lalu tekan Enter.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Script -->
+    <div id="tab-script" class="tab-content">
+      <div class="script-section">
+        <p class="script-desc">Salin script di bawah ini dan tempel secara manual ke DevTools Console jika tombol Jalankan tidak berfungsi.</p>
+        <div class="script-box">
+          <pre id="scriptContent">eval(atob("ZnVuY3Rpb24gc2hvd0xvYWRpbmdBbmltYXRpb24oYyl7Y29uc3QgbD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCJkaXYiKTtsLmlubmVySFRNTD0nPHN0eWxlPi5sb2FkaW5nLW92ZXJsYXl7cG9zaXRpb246Zml4ZWQ7dG9wOjA7bGVmdDowO3dpZHRoOjEwMCU7aGVpZ2h0OjEwMCU7YmFja2dyb3VuZDpyZ2JhKDAsMCwwLDAuODUpO2Rpc3BsYXk6ZmxleDtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO2FsaWduLWl0ZW1zOmNlbnRlcjt6LWluZGV4OjEwMDAxfS5sb2FkaW5nLWNvbnRlbnR7ZGlzcGxheTpmbGV4O2ZsZXgtZGlyZWN0aW9uOmNvbHVtbjthbGlnbi1pdGVtczpjZW50ZXI7Y29sb3I6I2ZmZjtmb250LWZhbWlseToiU2Vnb2UgVUkiLEFyaWFsLHNhbnMtc2VyaWZ9LnNwaW5uZXJ7d2lkdGg6NTBweDtoZWlnaHQ6NTBweDtib3JkZXI6NHB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4yKTtib3JkZXItdG9wOjRweCBzb2xpZCAjM2E3YmQ1O2JvcmRlci1yYWRpdXM6NTAlO2FuaW1hdGlvbjpzcGluIDFzIGxpbmVhciBpbmZpbml0ZTttYXJnaW4tYm90dG9tOjIwcHh9QGtleWZyYW1lcyBzcGluezAle3RyYW5zZm9ybTpyb3RhdGUoMGRlZyl9MTAwJXt0cmFuc2Zvcm06cm90YXRlKDM2MGRlZyl9fS5sb2FkaW5nLWNvbnRlbnQgcHtmb250LXNpemU6MTZweDtsZXR0ZXItc3BhY2luZzowLjVweDtjb2xvcjojZTBlMGUwfTwvc3R5bGU+PGRpdiBjbGFzcz0ibG9hZGluZy1vdmVybGF5Ij48ZGl2IGNsYXNzPSJsb2FkaW5nLWNvbnRlbnQiPjxkaXYgY2xhc3M9InNwaW5uZXIiPjwvZGl2PjxwPlR1bmdndSBTZWJlbnRhci4uLjwvcD48L2Rpdj48L2Rpdj4nO2RvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQobCk7c2V0VGltZW91dCgoKT0+e2RvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQobCk7YygpfSwxNTAwKX1mdW5jdGlvbiBzaG93Q29uZmlybWF0aW9uUG9wdXAoYyl7Y29uc3QgcD1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCJkaXYiKTtwLmlubmVySFRNTD0nPHN0eWxlPi5wb3B1cC1vdmVybGF5e3Bvc2l0aW9uOmZpeGVkO3RvcDowO2xlZnQ6MDt3aWR0aDoxMDAlO2hlaWdodDoxMDAlO2JhY2tncm91bmQ6cmdiYSg0NCw2Miw4MCwwLjcpO2Rpc3BsYXk6ZmxleDtqdXN0aWZ5LWNvbnRlbnQ6Y2VudGVyO2FsaWduLWl0ZW1zOmNlbnRlcjt6LWluZGV4OjEwMDAwO2FuaW1hdGlvbjpmYWRlSW4gMC4yNXMgZWFzZS1vdXR9LnBvcHVwLWNvbnRlbnR7YmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQoMTM1ZGVnLCMyYzNlNTAsIzRhNjU4Mik7cGFkZGluZzozMHB4O2JvcmRlci1yYWRpdXM6MTJweDtib3gtc2hhZG93OjAgMTBweCAzMHB4IHJnYmEoMCwwLDAsMC4zKTt0ZXh0LWFsaWduOmNlbnRlcjtmb250LWZhbWlseToiU2Vnb2UgVUkiLEFyaWFsLHNhbnMtc2VyaWY7Y29sb3I6I2ZmZjt3aWR0aDo5MCU7bWF4LXdpZHRoOjQ1MHB4O2JvcmRlcjoxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjEpO2JhY2tkcm9wLWZpbHRlcjpibHVyKDVweCl9LnBvcHVwLWNvbnRlbnQgaDJ7bWFyZ2luOjAgMCAxNXB4IDA7Zm9udC1zaXplOjI0cHg7Zm9udC13ZWlnaHQ6NjAwO2NvbG9yOiNmNWY1ZjV9LnBvcHVwLWNvbnRlbnQgcHttYXJnaW46MCAwIDI1cHggMDtmb250LXNpemU6MTVweDtsaW5lLWhlaWdodDoxLjU7Y29sb3I6I2QxZTBhZH0ucG9wdXAtYnV0dG9uc3tkaXNwbGF5OmZsZXg7anVzdGlmeS1jb250ZW50OmNlbnRlcjtnYXA6MTVweH0ucG9wdXAtYnV0dG9ucyBidXR0b257cGFkZGluZzoxMnB4IDI4cHg7Ym9yZGVyOm5vbmU7Ym9yZGVyLXJhZGl1czo2cHg7Y3Vyc29yOnBvaW50ZXI7Zm9udC1zaXplOjE1cHg7Zm9udC13ZWlnaHQ6NjAwO3RyYW5zaXRpb246YWxsIDAuMnMgZWFzZTttaW4td2lkdGg6MTAwcHh9LnBvcHVwLWJ1dHRvbnMgLnJ1bi1idG57YmFja2dyb3VuZDpsaW5lYXItZ3JhZGllbnQodG8gcmlnaHQsIzM0OThkYiwjMjk4MGI5KTtjb2xvcjojZmZmO2JveC1zaGFkb3c6MCAzcHggMTBweCByZ2JhKDUyLDE1MiwyMTksMC4zKX0ucG9wdXAtYnV0dG9ucyAucnVuLWJ0bjpob3ZlcntiYWNrZ3JvdW5kOmxpbmVhci1ncmFkaWVudCh0byByaWdodCwjMjk4MGJhLCMyNTczYTcpO3RyYW5zZm9ybTp0cmFuc2xhdGVZKC0ycHgpO2JveC1zaGFkb3c6MCA1cHggMTVweCByZ2JhKDUyLDE1MiwyMTksMC40KTtjb2xvcjojZmZmfS5wb3B1cC1idXR0b25zIC5jYW5jZWwtYnRue2JhY2tncm91bmQ6bGluZWFyLWdyYWRpZW50KHRvIHJpZ2h0LCNlNzRjM2MsI2MwMzkyYik7Y29sb3I6I2ZmZjtib3gtc2hhZG93OjAgM3B4IDEwcHggcmdiYSgyMzEsNzYsNjAsMC4zKX0ucG9wdXAtYnV0dG9ucyAuY2FuY2VsLWJ0bjpob3ZlcntiYWNrZ3JvdW5kOmxpbmVhci1ncmFkaWVudCh0byByaWdodCwjYzAzOTJiLCNiNTMyMjUpO3RyYW5zZm9ybTp0cmFuc2xhdGVZKC0ycHgpO2JveC1zaGFkb3c6MCA1cHggMTVweCByZ2JhKDIzMSw3Niw2MCwwLjQpfS5jcmVkaXR7dGV4dC1hbGlnbjpjZW50ZXI7bWFyZ2luLXRvcDoxNXB4O2ZvbnQtc2l6ZToxMnB4O2NvbG9yOiNiMGIwYjB9QGtleWZyYW1lcyBmYWRlSW57ZnJvbXtvcGFjaXR5OjA7dHJhbnNmb3JtOnRyYW5zbGF0ZVkoMTBweCl9dG97b3BhY2l0eToxO3RyYW5zZm9ybTp0cmFuc2xhdGVZKDApfX08L3N0eWxlPjxkaXYgY2xhc3M9InBvcHVwLW92ZXJsYXkiPjxkaXYgY2xhc3M9InBvcHVwLWNvbnRlbnQiPjxoMj5BdXRvZmlsbCBLdWVzaW9uZXI8L2gyPjxwPlBlbmlsYWlhbiBha2FuIGRpaXNpIHNlY2FyYSBhY2FrIGRlbmdhbiBuaWxhaSB5YW5nIHRlcnNlZGlhIGRpIGhhbGFtYW4uIEFwYWthaCBBbmRhIHlha2luIG1lbmphbGFua2FuPzwvcD48ZGl2IGNsYXNzPSJwb3B1cC1idXR0b25zIj48YnV0dG9uIGNsYXNzPSJydW4tYnRuIj5KYWxhbmthbjwvYnV0dG9uPjxidXR0b24gY2xhc3M9ImNhbmNlbC1idG4iPkJhdGFsPC9idXR0b24+PC9kaXY+PGRpdiBjbGFzcz0iY3JlZGl0Ij5TY3JpcHQgYnkgbXVjaHJpZDwvZGl2PjwvZGl2PjwvZGl2Pic7ZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChwKTtjb25zdCByPXAucXVlcnlTZWxlY3RvcignLnJ1bi1idG4nKSxiPXAucXVlcnlTZWxlY3RvcignLmNhbmNlbC1idG4nKTtyLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywoKT0+e2RvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQocCk7c2hvd0xvYWRpbmdBbmltYXRpb24oYyl9KTtiLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywoKT0+e2RvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQocCk7Y29uc29sZS5sb2coJ1Blbmdpc2lhbiBrdWVzaW9uZXIgZGliYXRhbGthbi4nKX0pfWZ1bmN0aW9uIGZpbGxSYW5kb21RdWVzdGlvbm5haXJlKCl7bGV0IGZpbGxlZD0wLHNraXBwZWQ9MDtkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCd1bCcpLmZvckVhY2godWw9Pntjb25zdCBpbnB1dHM9QXJyYXkuZnJvbSh1bC5xdWVyeVNlbGVjdG9yQWxsKCdpbnB1dFt0eXBlPSJyYWRpbyJdJykpO2lmKCFpbnB1dHMubGVuZ3RoKXJldHVybjtjb25zdCBncm91cHM9e307aW5wdXRzLmZvckVhY2gocj0+e2NvbnN0IGtleT1yLm5hbWV8fCdfX25vbmFtZV9fJztpZighZ3JvdXBzW2tleV0pZ3JvdXBzW2tleV09W107Z3JvdXBzW2tleV0ucHVzaChyKX0pO09iamVjdC52YWx1ZXMoZ3JvdXBzKS5mb3JFYWNoKHJhZGlvcz0+e2NvbnN0IHZhbHVlcz1yYWRpb3MubWFwKHI9PnIudmFsdWUpLmZpbHRlcih2PT52JiZ2LnRyaW0oKSE9PScnKTtpZighdmFsdWVzLmxlbmd0aCl7c2tpcHBlZCsrO3JldHVybn1jb25zdCBjaG9zZW49dmFsdWVzW01hdGguZmxvb3IoTWF0aC5yYW5kb20oKSp2YWx1ZXMubGVuZ3RoKV07cmFkaW9zLmZvckVhY2gocj0+e2lmKHIudmFsdWU9PT1jaG9zZW4pci5jaGVja2VkPXRydWV9KTtmaWxsZWQrK30pfSk7aWYoZmlsbGVkPT09MCl7Y29uc3QgYWxsUmFkaW9zPUFycmF5LmZyb20oZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnaW5wdXRbdHlwZT0icmFkaW8iXVtuYW1lKj0ic29hbCJdJykpO2NvbnN0IGdyb3Vwcz17fTthbGxSYWRpb3MuZm9yRWFjaChyPT57aWYoIWdyb3Vwc1tyLm5hbWVdKWdyb3Vwc1tyLm5hbWVdPVtdO2dyb3Vwc1tyLm5hbWVdLnB1c2gocil9KTtPYmplY3QudmFsdWVzKGdyb3VwcykuZm9yRWFjaChyYWRpb3M9Pntjb25zdCB2YWx1ZXM9cmFkaW9zLm1hcChyPT5yLnZhbHVlKS5maWx0ZXIodj0+diYmdi50cmltKCkhPT0nJyk7aWYoIXZhbHVlcy5sZW5ndGgpe3NraXBwZWQrKztyZXR1cm59Y29uc3QgY2hvc2VuPXZhbHVlc1tNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkqdmFsdWVzLmxlbmd0aCldO3JhZGlvcy5mb3JFYWNoKHI9PntpZihyLnZhbHVlPT09Y2hvc2VuKXIuY2hlY2tlZD10cnVlfSk7ZmlsbGVkKyt9KX1pZihmaWxsZWQ9PT0wKXtjb25zdCBhbGxSYWRpb3M9QXJyYXkuZnJvbShkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCdpbnB1dFt0eXBlPSJyYWRpbyJdJykpO2NvbnN0IGdyb3Vwcz17fTthbGxSYWRpb3MuZm9yRWFjaChyPT57Y29uc3Qga2V5PXIubmFtZXx8ci5nZXRBdHRyaWJ1dGUoJ25hbWUnKXx8J19fbm9uYW1lX18nO2lmKCFncm91cHNba2V5XSlncm91cHNba2V5XT1bXTtncm91cHNba2V5XS5wdXNoKHIpfSk7T2JqZWN0LnZhbHVlcyhncm91cHMpLmZvckVhY2gocmFkaW9zPT57Y29uc3QgdmFsdWVzPXJhZGlvcy5tYXAocj0+ci52YWx1ZSkuZmlsdGVyKHY9PnYmJnYudHJpbSgpIT09JycpO2lmKCF2YWx1ZXMubGVuZ3RoKXtza2lwcGVkKys7cmV0dXJufWNvbnN0IGNob3Nlbj12YWx1ZXNbTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpKnZhbHVlcy5sZW5ndGgpXTtyYWRpb3MuZm9yRWFjaChyPT57aWYoci52YWx1ZT09PWNob3NlbilyLmNoZWNrZWQ9dHJ1ZX0pO2ZpbGxlZCsrfSl9Y29uc29sZS5sb2coJ1tBdXRvU2NyaXB0XSBTZWxlc2FpIC0gJytmaWxsZWQrJyBzb2FsIHRlcmlzaSwgJytza2lwcGVkKycgZGlsZXdhdGkuJyl9c2hvd0NvbmZpcm1hdGlvblBvcHVwKGZpbGxSYW5kb21RdWVzdGlvbm5haXJlKTs="));</pre>
+        </div>
+        <button id="copyBtn" class="btn-copy">
+          <span id="copyIcon">📋</span> Salin Script
+        </button>
+      </div>
+    </div>
+
+    <!-- Tab: About -->
+    <div id="tab-about" class="tab-content">
+      <div class="about-section">
+        <div class="about-logo">
+          <img src="icons/icon128.png" alt="Logo" />
+        </div>
+        <h3>Auto Script Kuesioner SIMA</h3>
+        <p class="about-version">Versi 1.0.0</p>
+        <p class="about-desc">Ekstensi ini mengotomatiskan pengisian kuesioner SIMA Unira secara acak menggunakan script JavaScript yang diinjeksikan langsung ke halaman web.</p>
+        <div class="about-tags">
+          <span class="tag">Manifest v3</span>
+          <span class="tag">Open Source</span>
+          <span class="tag">SIMA Unira</span>
+        </div>
+        <p class="about-credit">Dibuat dengan ❤️ oleh <strong>muchrid</strong></p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="main-footer">
+      <span>Script by <strong>muchrid</strong> · 2026</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
