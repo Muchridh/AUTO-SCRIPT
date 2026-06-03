@@ -1,0 +1,302 @@
+/* =============================================
+   BASE
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f8;
+    color: #1e293b;
+}
+
+/* =============================================
+   HEADER
+   ============================================= */
+header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #2c3e50 100%);
+    color: white;
+    text-align: center;
+    padding: 3.5rem 1.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+}
+header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(59,130,246,0.2) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 30%, rgba(99,102,241,0.15) 0%, transparent 50%);
+    pointer-events: none;
+}
+.header-inner { position: relative; z-index: 1; }
+.header-badge {
+    display: inline-block;
+    background: rgba(59,130,246,0.2);
+    border: 1px solid rgba(59,130,246,0.4);
+    color: #93c5fd;
+    font-size: 0.75rem; font-weight: 600;
+    padding: 4px 14px; border-radius: 20px;
+    margin-bottom: 14px; letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+header h1 {
+    margin: 0 0 10px;
+    font-size: 2.6rem; font-weight: 800;
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+header p {
+    margin: 0 0 18px;
+    font-size: 1.05rem; opacity: 0.85; max-width: 480px;
+    margin-left: auto; margin-right: auto;
+    line-height: 1.6;
+}
+.header-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+.htag {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px; padding: 5px 14px;
+    font-size: 0.8rem; font-weight: 500;
+    backdrop-filter: blur(4px);
+}
+
+/* =============================================
+   CONTAINER
+   ============================================= */
+.container {
+    max-width: 860px;
+    margin: 2.5rem auto;
+    padding: 0 1.2rem;
+    display: flex; flex-direction: column; gap: 2rem;
+}
+
+/* =============================================
+   EXTENSION DOWNLOAD SECTION
+   ============================================= */
+.extension-section {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.extension-section.visible { opacity: 1; transform: translateY(0); }
+.ext-glow { display: none; }
+
+.ext-header {
+    display: flex; gap: 20px; align-items: center;
+    margin-bottom: 1.6rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+.ext-icon-wrap { flex-shrink: 0; }
+.ext-icon {
+    width: 60px; height: 60px; border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    display: block;
+}
+.ext-meta { flex: 1; }
+.ext-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #94a3b8;
+    font-size: 0.68rem; font-weight: 700;
+    padding: 3px 12px; border-radius: 20px;
+    margin-bottom: 8px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+}
+.ext-meta h2 {
+    margin: 0 0 4px; color: #1e293b;
+    font-size: 1.25rem; font-weight: 800;
+    letter-spacing: -0.3px; line-height: 1.2;
+}
+.ext-meta p {
+    margin: 0 0 10px; color: #64748b;
+    font-size: 0.82rem; line-height: 1.5;
+}
+.ext-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.etag {
+    font-size: 0.67rem; font-weight: 600;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #94a3b8; border-radius: 20px; padding: 3px 10px;
+}
+
+/* Download Button */
+.btn-download {
+    display: flex; align-items: center; gap: 14px;
+    width: 100%; padding: 18px 22px;
+    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    color: #fff; text-decoration: none;
+    border-radius: 12px; margin-bottom: 1.8rem;
+    box-shadow: 0 4px 28px rgba(99,102,241,0.45);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; overflow: hidden;
+}
+.btn-download::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+    pointer-events: none;
+}
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(99,102,241,0.6);
+}
+.btn-download:active { transform: scale(0.98); }
+.dl-icon { font-size: 1.8rem; flex-shrink: 0; animation: bounce 2s ease-in-out infinite; }
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
+.dl-text strong {
+    display: block; font-size: 1.05rem; font-weight: 700;
+    letter-spacing: 0.2px;
+}
+.dl-text small { font-size: 0.78rem; opacity: 0.75; }
+
+/* Install Tutorial — simple list */
+.install-tutorial { margin-top: 0.2rem; }
+.install-tutorial h3 {
+    font-size: 0.72rem; font-weight: 700; margin: 0 0 0.9rem;
+    color: #94a3b8;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+.tutorial-list {
+    list-style: none; padding: 0; margin: 0 0 10px;
+    display: flex; flex-direction: column; gap: 6px;
+}
+.tutorial-list li {
+    font-size: 0.83rem; color: #475569;
+    padding-left: 20px; position: relative;
+    line-height: 1.5;
+}
+.tutorial-list li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: #3b82f6; font-weight: 700; font-size: 0.8rem;
+}
+.tutorial-list code {
+    background: #f1f5f9; color: #334155;
+    border-radius: 4px; padding: 1px 6px;
+    font-size: 0.76rem; font-family: 'Consolas', monospace;
+    border: 1px solid #e2e8f0;
+}
+.tutorial-list strong { color: #1e293b; font-weight: 600; }
+.tutorial-note {
+    font-size: 0.79rem; color: #94a3b8;
+    margin: 0; line-height: 1.5;
+    padding-left: 0;
+}
+.tutorial-note strong { color: #64748b; }
+
+/* =============================================
+   VIDEO SECTION
+   ============================================= */
+.video-section, .script-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.video-section.visible, .script-section.visible {
+    opacity: 1; transform: translateY(0);
+}
+.video-section h2, .script-section h2 {
+    display: inline-block;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #94a3b8;
+    font-size: 0.7rem; font-weight: 700;
+    padding: 4px 14px; border-radius: 20px;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+.video-section > p, .script-section > p {
+    color: #64748b; font-size: 0.88rem; margin-bottom: 1.2rem;
+}
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; height: 0; overflow: hidden;
+    border-radius: 10px; background: #000;
+}
+.video-container video {
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 100%; object-fit: cover;
+}
+.warning {
+    color: #dc2626; font-size: 0.82rem;
+    margin-top: 12px; margin-bottom: 2px;
+    display: block;
+}
+.warning em { font-style: normal; font-weight: 600; }
+.enter {
+    color: #16a34a; font-size: 0.82rem;
+    display: block; margin-top: 4px;
+}
+.enter code {
+    background: #dcfce7; color: #15803d;
+    border-radius: 4px; padding: 1px 6px;
+    font-family: 'Consolas', monospace; font-size: 0.8rem;
+}
+
+/* =============================================
+   SCRIPT SECTION
+   ============================================= */
+.script-section pre {
+    background: #0d1117;
+    color: #8b949e;
+    padding: 1.2rem;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 0.78rem;
+    font-family: 'Consolas', monospace;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-all;
+    border: 1px solid #21262d;
+    margin-bottom: 1rem;
+}
+.copy-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 11px 22px;
+    background: linear-gradient(to right, #3b82f6, #6366f1);
+    color: white; border: none; border-radius: 8px;
+    cursor: pointer; font-size: 0.9rem; font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 12px rgba(59,130,246,0.3);
+}
+.copy-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59,130,246,0.45);
+}
+.copy-btn:active { transform: scale(0.97); }
+
+/* =============================================
+   FOOTER
+   ============================================= */
+footer {
+    background: linear-gradient(135deg, #0f172a, #1e2d4a);
+    color: #94a3b8;
+    text-align: center;
+    padding: 1.6rem;
+    margin-top: 1rem;
+}
+footer p { margin: 0; font-size: 0.88rem; }
+footer strong { color: #60a5fa; }
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+@media (max-width: 600px) {
+    header h1 { font-size: 1.8rem; }
+    .ext-header { flex-direction: column; }
+    .ext-icon { width: 52px; height: 52px; }
+    .step { flex-direction: row; }
+}
